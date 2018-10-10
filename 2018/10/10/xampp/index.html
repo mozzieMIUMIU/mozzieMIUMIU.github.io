@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Tags｜miumiu是一只猫&#39;s blog
+        xampp配置多域名｜miumiu是一只猫&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://mozzieMIUMIU.github.io/Tags/">
+    <link rel="canonical" href="https://mozzieMIUMIU.github.io/2018/10/10/xampp/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -123,220 +123,153 @@
 </script>
 
 <!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="//raw.githubusercontent.com/mozzieMIUMIU/mozzieMIUMIU.github.io/master/images/bg.jpg">
+
+
 <style>
-    .intro-header .site-heading {
-        margin: 50px;
-    }
     
     header.intro-header {
         background-image: url('//raw.githubusercontent.com/mozzieMIUMIU/mozzieMIUMIU.github.io/master/images/bg.jpg')
     }
+
     
 </style>
 
-<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading text-center">
-                    <h1>Tags</h1>
-                    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>xampp配置多域名</h1>
+                    
+                    <span class="meta">
+                         作者 mozzieMIUMIU
+                        <span>
+                          日期 2018-10-10
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            xampp配置多域名
+        </span>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="修改hosts文件"><a href="#修改hosts文件" class="headerlink" title="修改hosts文件"></a>修改hosts文件</h3><blockquote>
+<p>新加一条记录：127.0.0.1 php.travel.com<br>window:<br>    文件位置：系统-&gt;“windows”-&gt;“System32”-&gt;“drivers”-&gt;“etc”<br>mac:<br>    文件位置：打开Finder-&gt;前往文件夹-&gt;输入“/private/etc/”<br>    终端操作：sudo nano /private/etc/hosts</p>
+</blockquote>
+<h3 id="启动Apache的虚拟主机"><a href="#启动Apache的虚拟主机" class="headerlink" title="启动Apache的虚拟主机"></a>启动Apache的虚拟主机</h3><blockquote>
+<p>下载地址：<a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener">https://www.apachefriends.org/download.html</a></p>
+</blockquote>
+<h3 id="修改httpd-conf"><a href="#修改httpd-conf" class="headerlink" title="修改httpd.conf"></a>修改httpd.conf</h3><blockquote>
+<p>一、搜索vhost<br>搜索到#LoadModule vhost_alias_module modules/mod_vhost_alias.so，将#删除<br>搜索到#Include conf/extra/httpd-vhosts.conf，将#删除<br>二、防止403权限问题，将<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>改成<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    #AllowOverride none</span><br><span class="line">    #Require all denied</span><br><span class="line">    Order allow,deny  </span><br><span class="line">    Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="创建项目目录"><a href="#创建项目目录" class="headerlink" title="创建项目目录"></a>创建项目目录</h3><blockquote>
+<p>项目文件夹任意位置<br>比如：在workgit文件夹里新建了一个php-demo文件夹，并在此新建一个hello.php的文件，<br>hello里写入&lt;?php echo “phpd123456” ?&gt; 方便测试</p>
+</blockquote>
+<h3 id="修改httpd-vhost配置文件"><a href="#修改httpd-vhost配置文件" class="headerlink" title="修改httpd-vhost配置文件"></a>修改httpd-vhost配置文件</h3><blockquote>
+<p>文件地址 xampp/etc/extra</p>
+</blockquote>
+<h3 id="重启Apache检测是否成功"><a href="#重启Apache检测是否成功" class="headerlink" title="重启Apache检测是否成功"></a>重启Apache检测是否成功</h3>
+                <hr>
                 
-                <a href="#css" title="css" rel="1">css</a>
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/05/05/react实战/" data-toggle="tooltip" data-placement="top"
+                           title="react实战">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
-                <a href="#所想" title="所想" rel="1">所想</a>
+
                 
-                <a href="#笔记" title="笔记" rel="6">笔记</a>
-                
-                <a href="#other" title="other" rel="1">other</a>
-                
-                <a href="#react" title="react" rel="2">react</a>
-                
-                <a href="#hexo" title="hexo" rel="1">hexo</a>
+
+
+                <!--加入新的评论系统-->
                 
             </div>
 
-            <!-- 标签列表 -->
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="css">
-                    <span class="tag-text">css</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2018/04/23/css_check mark/">
-                        <h2 class="post-title">
-                            css制作的「对号」图标
-                        </h2>
-                        
-                    </a>
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改hosts文件"><span class="toc-text">修改hosts文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Apache的虚拟主机"><span class="toc-text">启动Apache的虚拟主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改httpd-conf"><span class="toc-text">修改httpd.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建项目目录"><span class="toc-text">创建项目目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改httpd-vhost配置文件"><span class="toc-text">修改httpd-vhost配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启Apache检测是否成功"><span class="toc-text">重启Apache检测是否成功</span></a></li></ol>
                 </div>
-                <hr>
-                
             </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="所想">
-                    <span class="tag-text">所想</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2018/04/19/echarts-line/">
-                        <h2 class="post-title">
-                            echarts关于tooltip自定义修改的问题
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="笔记">
-                    <span class="tag-text">笔记</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2017/11/21/es6/">
-                        <h2 class="post-title">
-                            es6一些
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2018/04/19/git/">
-                        <h2 class="post-title">
-                            git与github
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2017/11/17/时间处理/">
-                        <h2 class="post-title">
-                            Date日期对象
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2017/11/17/webpack/">
-                        <h2 class="post-title">
-                            webpack一些
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2017/11/21/position: sticky/">
-                        <h2 class="post-title">
-                            position:sticky属性
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2018/10/10/xampp/">
-                        <h2 class="post-title">
-                            xampp配置多域名
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="other">
-                    <span class="tag-text">other</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2014/11/04/miumiu/">
-                        <h2 class="post-title">
-                            miumiu是一只猫
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="react">
-                    <span class="tag-text">react</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2018/04/22/react/">
-                        <h2 class="post-title">
-                            react入门
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2018/05/05/react实战/">
-                        <h2 class="post-title">
-                            react实战
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="hexo">
-                    <span class="tag-text">hexo</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2017/11/15/hexo/">
-                        <h2 class="post-title">
-                            hexo
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/Tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/Tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://mozziemiumiu.github.io/2014/11/04/miumiu/">miumiu</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
